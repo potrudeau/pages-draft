@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <title></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/images/apple-ios-57.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-ios-72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-ios-114.png" />
+  <script src="script.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand">Board Fantaisie</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+        <ul class="nav navbar-nav">
+          <li id="nav_Team"><a href="index.html">Mon club</a></li>
+          <li id="nav_QB"><a href="board.html?pos=QB">QB</a></li>
+          <li id="nav_RB"><a href="board.html?pos=RB">RB</a></li>
+          <li id="nav_WR"><a href="board.html?pos=WR">WR</a></li>
+          <li id="nav_TE"><a href="board.html?pos=TE">TE</a></li>
+          <li id="nav_K"><a href="board.html?pos=K">K</a></li>
+          <li id="nav_DEF"><a href="board.html?pos=DEF">DEF</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+  <div class="container theme-showcase" role="main" style="padding-top:100;" id="loader">
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <img src="/images/loader_ff.gif">
+      </div>
+    </div>
+  </div>  
+  
+  <div class="container theme-showcase" role="main" style="padding-top:50" id="content" hidden="true">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="header_position"></h1>
+      </div>
+    </div>
+
+    <div class="row" id="data">
+      <div class="col-md-12">
+        <table class="table table-bordered table-condensed" id="Joueurs">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Joueur</th>
+              <th>AH</th>
+              <th>JM</th>
+              <th>MW</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    loadPlayers(true);
+  </script>
+</body>
+
+</html>
