@@ -41,25 +41,25 @@ function loadPlayers() {
       }
     });    
     
-  //   $.when(reqQB, reqRB, reqWR, reqTE).done(function() {      
-  //     $.get("https://s3.ca-central-1.amazonaws.com/fantaisiefootball.p-o.ca/fff_mock.csv?q=" + Date.now(), function(txt) {
-  //       var lines = txt.split("\n");
-  //       for (var i = 8, len = lines.length; i < len; i++) {
-  //         var $line = lines[i];
-  //         var $val = $line.split(",");
-  //         var $joueur = $val[3];
+    $.when(reqQB, reqRB, reqWR, reqTE).done(function() {      
+      $.get("https://s3.ca-central-1.amazonaws.com/fantaisiefootball.p-o.ca/fff_mock.csv?q=" + Date.now(), function(txt) {
+        var lines = txt.split("\n");
+        for (var i = 8, len = lines.length; i < len; i++) {
+          var $line = lines[i];
+          var $val = $line.split(",");
+          var $joueur = $val[3];
           
-  //         if ($joueur)
-  //         {
-  //           console.log($joueur)
-  //           $( "td:contains('" + $joueur + "')" )
-  //             .css( "background-color", "#FFFF99" )
-  //             .prev().css( "background-color", "#FFFF99" );            
-  //         }
+          if ($joueur)
+          {
+            console.log($joueur)
+            $( "td:contains('" + $joueur + "')" )
+              .css( "background-color", "#FFFF99" )
+              .prev().css( "background-color", "#FFFF99" );            
+          }
                     
-  //        }
-  //      });
-  //   });
+         }
+       });
+    });
     
    });
 }
@@ -82,6 +82,17 @@ function LoadMyPlayers() {
 
           position = (position == "PK") ? "K" : position;
           position = (position == "TD") ? "DEF" : position;
+
+          if (choix.includes("22."))
+            choix = "R1.12"
+          else if (choix.includes("23."))
+            choix = "R2.01"
+          else if (choix.includes("24."))
+            choix = "R3.12"
+          else if (choix.includes("25."))
+            choix = "R4.01"       
+          else
+            choix = "V" + choix     
 
           if (participant == "P-O Trudeau" || participant == "TRUDEAU") {
             if (joueur)
