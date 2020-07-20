@@ -3,7 +3,7 @@ function loadPlayers() {
 
     var reqQB = $.get("rank_qb.csv?q=" + Date.now(), function(txt) {
       var lines = txt.split("\n");
-      for (var i = 1, len = lines.length - 1; i < len; i++) {
+      for (var i = 1, len = lines.length; i < len; i++) {
         var $line = lines[i];
         var $val = $line.split(";");
         var $joueur = ($val[2].trim() + " (" + $val[3].trim() + ")").replace(/\"/g, ""); 
@@ -13,7 +13,7 @@ function loadPlayers() {
     
     var reqRB = $.get("rank_rb.csv?q=" + Date.now(), function(txt) {
       var lines = txt.split("\n");
-      for (var i = 1, len = lines.length - 1; i < len; i++) {
+      for (var i = 1, len = lines.length; i < len; i++) {
         var $line = lines[i];
         var $val = $line.split(";");
         var $joueur = ($val[2].trim() + " (" + $val[3].trim() + ")").replace(/\"/g, ""); 
@@ -23,7 +23,7 @@ function loadPlayers() {
    
     var reqWR = $.get("rank_wr.csv?q=" + Date.now(), function(txt) {
       var lines = txt.split("\n");
-      for (var i = 1, len = lines.length - 1; i < len; i++) {
+      for (var i = 1, len = lines.length; i < len; i++) {
         var $line = lines[i];
         var $val = $line.split(";");
         var $joueur = ($val[2].trim() + " (" + $val[3].trim() + ")").replace(/\"/g, ""); 
@@ -33,7 +33,7 @@ function loadPlayers() {
     
     var reqTE = $.get("rank_te.csv?q=" + Date.now(), function(txt) {
       var lines = txt.split("\n");
-      for (var i = 1, len = lines.length - 1; i < len; i++) {
+      for (var i = 1, len = lines.length; i < len; i++) {
         var $line = lines[i];
         var $val = $line.split(";");
         var $joueur = ($val[2].trim() + " (" + $val[3].trim() + ")").replace(/\"/g, ""); 
