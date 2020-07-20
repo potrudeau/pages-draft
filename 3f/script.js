@@ -5,8 +5,8 @@ function loadPlayers() {
       var lines = txt.split("\n");
       for (var i = 1, len = lines.length - 1; i < len; i++) {
         var $line = lines[i];
-        var $val = $line.split(",");
-        var $joueur = ($val[0].trim() + " (" + $val[1].trim() + ")").replace(/\"/g, ""); 
+        var $val = $line.split(";");
+        var $joueur = ($val[2].trim() + " (" + $val[3].trim() + ")").replace(/\"/g, ""); 
         $("#QB > tbody:last-child").append('<tr><td>' + i + '</td><td>' + $joueur + '</td></tr>');
       }
     });
@@ -15,8 +15,8 @@ function loadPlayers() {
       var lines = txt.split("\n");
       for (var i = 1, len = lines.length - 1; i < len; i++) {
         var $line = lines[i];
-        var $val = $line.split(",");
-        var $joueur = ($val[0].trim() + " (" + $val[1].trim() + ")").replace(/\"/g, ""); 
+        var $val = $line.split(";");
+        var $joueur = ($val[2].trim() + " (" + $val[3].trim() + ")").replace(/\"/g, ""); 
         $("#RB > tbody:last-child").append('<tr><td>' + i + '</td><td>' + $joueur + '</td></tr>');
       }
     });    
@@ -25,8 +25,8 @@ function loadPlayers() {
       var lines = txt.split("\n");
       for (var i = 1, len = lines.length - 1; i < len; i++) {
         var $line = lines[i];
-        var $val = $line.split(",");
-        var $joueur = ($val[0].trim() + " (" + $val[1].trim() + ")").replace(/\"/g, ""); 
+        var $val = $line.split(";");
+        var $joueur = ($val[2].trim() + " (" + $val[3].trim() + ")").replace(/\"/g, ""); 
         $("#WR > tbody:last-child").append('<tr><td>' + i + '</td><td>' + $joueur + '</td></tr>');
       }
     });  
@@ -35,33 +35,33 @@ function loadPlayers() {
       var lines = txt.split("\n");
       for (var i = 1, len = lines.length - 1; i < len; i++) {
         var $line = lines[i];
-        var $val = $line.split(",");
-        var $joueur = ($val[0].trim() + " (" + $val[1].trim() + ")").replace(/\"/g, ""); 
+        var $val = $line.split(";");
+        var $joueur = ($val[2].trim() + " (" + $val[3].trim() + ")").replace(/\"/g, ""); 
         $("#TE > tbody:last-child").append('<tr><td>' + i + '</td><td>' + $joueur + '</td></tr>');
       }
     });    
     
-    $.when(reqQB, reqRB, reqWR, reqTE).done(function() {      
-      $.get("https://s3.ca-central-1.amazonaws.com/fantaisiefootball.p-o.ca/fff_mock.csv?q=" + Date.now(), function(txt) {
-        var lines = txt.split("\n");
-        for (var i = 8, len = lines.length; i < len; i++) {
-          var $line = lines[i];
-          var $val = $line.split(",");
-          var $joueur = $val[3];
+  //   $.when(reqQB, reqRB, reqWR, reqTE).done(function() {      
+  //     $.get("https://s3.ca-central-1.amazonaws.com/fantaisiefootball.p-o.ca/fff_mock.csv?q=" + Date.now(), function(txt) {
+  //       var lines = txt.split("\n");
+  //       for (var i = 8, len = lines.length; i < len; i++) {
+  //         var $line = lines[i];
+  //         var $val = $line.split(",");
+  //         var $joueur = $val[3];
           
-          if ($joueur)
-          {
-            console.log($joueur)
-            $( "td:contains('" + $joueur + "')" )
-              .css( "background-color", "#FFFF99" )
-              .prev().css( "background-color", "#FFFF99" );            
-          }
+  //         if ($joueur)
+  //         {
+  //           console.log($joueur)
+  //           $( "td:contains('" + $joueur + "')" )
+  //             .css( "background-color", "#FFFF99" )
+  //             .prev().css( "background-color", "#FFFF99" );            
+  //         }
                     
-         }
-       });
-    });
+  //        }
+  //      });
+  //   });
     
-  });
+   });
 }
 
 function LoadMyPlayers() {
