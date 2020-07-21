@@ -1,6 +1,14 @@
 function loadPlayers() {
   $(document).ready(function() {
 
+
+    let searchParams = new URLSearchParams(window.location.search)
+    let mode = searchParams.get('mode')
+    if (mode == "dispo")
+      $("#nav_Dispo").addClass("active")
+    else if (mode == "allplayers")
+      $("#nav_AllPlayers").addClass("active")
+
     var reqQB = $.get("rank_qb.csv?q=" + Date.now(), function(txt) {
       var lines = txt.split("\n");
       for (var i = 1, len = lines.length; i < len; i++) {
@@ -51,10 +59,10 @@ function loadPlayers() {
           
           if ($joueur)
           {
-            console.log($joueur)
-            $( "td:contains('" + $joueur + "')" )
-              .css( "background-color", "#FFFF99" )
-              .prev().css( "background-color", "#FFFF99" );            
+            if (mode == "allplayers")
+              $( "td:contains('" + $joueur + "')" ).css( "background-color", "#FFFF99" ).prev().css( "background-color", "#FFFF99" );
+            else
+              $( "td:contains('" + $joueur + "')" ).hide().prev().hide();   
           }
                     
          }
