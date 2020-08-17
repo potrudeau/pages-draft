@@ -55,7 +55,7 @@ function loadPlayers() {
         for (var i = 8, len = lines.length; i < len; i++) {
           var $line = lines[i];
           var $val = $line.split(",");
-          var $joueur = $val[3];
+          var $joueur = $val[3];          
           
           if ($joueur)
           {
